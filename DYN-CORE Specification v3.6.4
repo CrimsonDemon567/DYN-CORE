@@ -1,0 +1,175 @@
+================================================================
+DYN-CORE – CPU Architecture Specification v3.6.4
+(Formal Invariants • Temporal Guarantees • Layer Separation)
+================================================================
+
+0. OVERVIEW
+-----------
+DYN-CORE (Deterministic Yield Node – Central Operations & Resonance Engine)
+v3.6.4 extends v3.6.3 by introducing explicit architectural invariants,
+temporal progress guarantees, and a clear separation between metaphorical
+(physical) semantics and execution-level behavior.
+
+The goal is to ensure long-term stability without sacrificing forward
+progress or verifiability.
+
+----------------------------------------------------------------
+
+1. ENHANCED ENERGY TOPOLOGY LAYER
+--------------------------------
+1.1 Divergence Overflow Management
+A tensor T may branch only if |div(T)| ≤ div_max.
+
+If exceeded:
+• Primary branch is suppressed.
+• Excess flow is shunted to the nearest Sink-Node (Entropy Drain).
+• Sink-Nodes are terminal and non-propagating.
+
+Invariant I1:
+∀T : |div(T)| ≤ div_max OR T → Sink-Node
+
+1.2 Deterministic Gradient Routing
+Routing priority order is strictly enforced:
+1. Lowest Impedance
+2. Highest Phase-Alignment
+3. Hardware-ID (Final tie-breaker)
+
+Routing must be reproducible under identical initial conditions.
+
+----------------------------------------------------------------
+
+2. REINFORCED TENSOR STABILITY CONES
+------------------------------------
+2.1 Near-Source Divergence Tolerance
+Within the core stability region, divergence is bounded but non-zero
+to allow computational work.
+
+C(T) = { x | grad(T)(x) < threshold
+             AND |div(T)(x)| < ε (ε = 10^-9)
+             AND |curv(T)(x)| < κ_max }
+
+Violation of any constraint immediately triggers Sink-Node routing.
+
+----------------------------------------------------------------
+
+3. RESONANCE GEOMETRY LOCKING & RELEASE
+---------------------------------------
+3.1 Lock Condition
+A resonance geometry enters LOCKED state when:
+• Phase-Alignment ≥ 0.95
+• Energy density |E| ≤ e
+
+3.2 Mandatory Emergency Unlock (ENFORCED)
+A locked geometry MUST release if any of the following occur:
+• An explicit Unlock-Pulse instruction is received.
+• Energy density |E| < Sustainability Floor (e_min).
+• Phase-Inversion exceeds Dampener capacity.
+• Lock duration exceeds Δt_max.
+
+Invariant I3:
+No LOCKED state may persist without at least one guaranteed exit path.
+
+----------------------------------------------------------------
+
+4. MULTI-DOMAIN COUPLING SAFETY
+-------------------------------
+4.1 Atomic Transfer Window
+All inter-domain transfers are atomic.
+
+If |E_A − E_B| > e:
+• Transfer is buffered in a Coherence-Pool.
+• A Dampener is applied during buffering.
+• Destination domain updates only after stability verification.
+
+Invariant I2:
+No externally observable state may be written outside an atomic context.
+
+----------------------------------------------------------------
+
+5. Æ v1.4.3 – PATTERN SYSTEM
+----------------------------
+5.1 Pattern Guards & Stall Recovery
+If a guard condition fails:
+• The executing thread enters a Stall-State.
+• The Stabilizer pattern is executed with priority.
+• The original pattern retries exactly once when the guard is TRUE.
+
+If Stall-State duration > Δt_max:
+• A forced Unlock-Pulse is issued.
+• Control is yielded to the scheduler.
+
+5.2 Resonance Scopes (Isolated Execution)
+scope resonance MotionFields:
+    pos, vel, acc {
+        Isolation Level: High
+        Leakage Limit: < 0.001e
+    }
+
+5.3 Atomic Pattern Composition (Shadow-States)
+Composed patterns execute entirely in Shadow-State space.
+Intermediate values are never written to the primary Energy Topology
+until full validation succeeds.
+
+pattern MoveObject(pos, vel, acc):
+    atomic:
+        Integrate(pos, vel)
+        Dampener(vel, 0.2e)
+        Gate(acc, threshold=0.5e)
+
+On validation failure:
+• Shadow-State is discarded.
+• Primary state remains unchanged.
+
+----------------------------------------------------------------
+
+6. TEMPORAL PROGRESS GUARANTEES
+-------------------------------
+To prevent stability-induced stagnation:
+
+Invariant I4:
+Every execution path must either:
+• Commit a valid state, OR
+• Yield control, OR
+• Be terminated via Sink or Unlock within Δt_max.
+
+No system component may indefinitely consume resources without progress.
+
+----------------------------------------------------------------
+
+7. LAYER SEPARATION MODEL
+-------------------------
+The architecture is defined on two explicit layers:
+
+7.1 Physical Metaphor Layer
+• Energy
+• Resonance
+• Curvature
+• Phase-Alignment
+
+Used for reasoning, safety modeling, and invariants.
+
+7.2 Execution Layer
+• Threads
+• States
+• Atomic Transactions
+• Schedulers
+• Interrupts (Unlock-Pulses)
+
+All Physical Layer concepts must map deterministically
+to Execution Layer mechanisms.
+
+----------------------------------------------------------------
+
+8. ARCHITECTURAL GUARANTEES (v3.6.4)
+------------------------------------
+• Bounded Divergence: Excess is always drained or terminated.
+• Deadlock Freedom: All locks have enforced exit conditions.
+• Temporal Progress: Stability cannot result in infinite stalling.
+• Data Integrity: Atomicity prevents partial or corrupt states.
+• Determinism: Identical inputs yield identical outcomes.
+• Safety: No undefined intermediate or metastable states are observable.
+
+(C) Copyright 2026 Vincent Noll
+----------------------------------------------------------------
+(End of Specification v3.6.4 – Formalization & Temporal Stability Update)
+================================================================

@@ -24,7 +24,7 @@ The textual and graphical documentation of this specification is licensed under 
 This license grants rights only to the copyrighted documentation and **does not** grant any rights, express or implied, under any patents, patent applications, or other intellectual property owned by Vincent Noll. 
 
 Specifically, the innovative methods described within—including but not limited to **DNA-templated Silicon Carbide synthesis** and **Resonant Interference logic**—remain the sole proprietary conceptual inventions of the author. Implementation, manufacturing, or commercial use of these underlying technologies requires a separate written licensing agreement.
-
+ 
 ### 4. Trademark Notice
 **“DYN-CORE”**, **“DYN-GEM”**, and all related logos, names, and identifiers are protected trademarks of Vincent Noll. 
 

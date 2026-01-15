@@ -1,25 +1,29 @@
-© 2026 Vincent Noll. All rights reserved. Licensed under CC BY-ND 4.0. See LICENSE.md for patent and trademark restrictions.
+© 2026 Vincent Noll. All rights reserved. Licensed under CC BY-ND 4.0.
+See LICENSE.md for patent and trademark restrictions.
 
 ================================================================
-DYN-CORE – CPU Architecture Specification v4.1.1
-(Silicon Carbide Monolith • Topological Transport • Formal Invariants)
+DYN-CORE – CPU Architecture Specification v4.1.1 (Unified Edition)
+(Biomimetic SiC Epitaxy • Monolithic Substrate • Topological Transport)
 ================================================================
 
 0. OVERVIEW
 -----------
-DYN-CORE v4.1.1 transitions the substrate to a monolithic Silicon Carbide 
-(SiC) lattice. SiC provides superior thermal conductivity, chemical 
-inertness, and a high-integrity framework for topological quantum states.
+DYN-CORE v4.1.1 defines a monolithic Silicon Carbide (SiC) processor
+grown through DNA-guided biomimetic epitaxy. This revision unifies the
+substrate-level innovations of the SiC monolith with the formal logic
+invariants and wave-logic execution model introduced in earlier versions.
 
-Key advancements in v4.1.1:
-• Substrate: Homogeneous Silicon Carbide monocrystal (4H-SiC or 6H-SiC).
-• Transport: Topologically protected Ballistic Flow within the SiC matrix.
-• Stability: Extreme hardness and wide bandgap protection against noise.
+The result is a permanent, radiation-immune, high-integrity SiC
+computing crystal capable of ballistic, topologically protected
+wave-logic execution with deterministic behavior enforced by the
+DYN-CORE Logic Core (I1–I4).
 
 ----------------------------------------------------------------
 
 1. FORMAL INVARIANTS (Logic Core)
 ---------------------------------
+These invariants apply regardless of substrate or execution medium.
+
 I1 — Divergence Bound:
     |div(T)| ≤ div_max OR T → Sink-Node (Entropy Drain)
 
@@ -27,95 +31,115 @@ I2 — Atomicity:
     No Primary Topology update occurs without Shadow-State validation.
 
 I3 — Mandatory Unlock:
-    No LOCKED resonance geometry may persist without an exit path.
+    No LOCKED resonance geometry may persist without a guaranteed exit path.
 
 I4 — Temporal Progress:
     Every execution path must commit, yield, or terminate within Δt_max.
 
+These invariants ensure correctness, determinism, and deadlock freedom.
+
 ----------------------------------------------------------------
 
-2. MOLECULAR SYNTHESIS LAYER (Substrate v4.1)
----------------------------------------------
-The processor is grown via directed molecular self-assembly.
+2. MOLECULAR SYNTHESIS LAYER (Substrate v4.1.1)
+-----------------------------------------------
+The SiC substrate is produced through a hybrid biological–chemical
+growth process optimized for atomic precision and defect minimization.
 
-2.1 DNA-Templated SiC Synthesis
-Synthetic DNA strands organize Silicon and Carbon precursors into a 
-perfectly ordered SiC lattice. The DNA scaffold ensures the correct 
-polytype (e.g., 4H-SiC) is formed at the nanoscale.
+2.1 DNA-Guided Layer-by-Layer (LbL) Epitaxy
+A biomimetic mineralization process forms the monolithic SiC lattice:
+• DNA-Origami Scaffold:
+  A 3D DNA lattice defines atomic coordinates for Si/C precursor binding.
+• Layer-by-Layer Deposition:
+  Precursor ions are sequestered and deposited in controlled sequences,
+  forming a 4H-SiC or 6H-SiC polytype with minimal lattice defects.
+• Calcination:
+  A thermal cycle removes the organic scaffold, leaving a pure SiC crystal.
 
-2.2 S-Layer Protein Shield
-A self-healing crystalline protein lattice maintains the SiC surface, 
-preventing oxidation and repairing any displacement damage caused by 
-high-energy cosmic rays.
+2.2 Surface Passivation (Inorganic Shield)
+A transient S-Layer protein shell guides deposition of a permanent
+2 nm protective coating:
+• Diamond-Like Carbon (DLC), or
+• Silicon Nitride (Si3N4)
+
+This ensures:
+• Oxidation resistance
+• Structural integrity up to 1200K
+• Protection against cosmic-ray displacement damage
 
 2.3 Monolithic Silicon Carbide Matrix
-• Structure: Covalent Si-C bonding providing diamond-like hardness.
-• Property: Wide bandgap (3.2 eV) ensures zero leakage current and 
-  stability at extreme temperatures or radiation levels.
+• Hardness: Mohs 9.5 (covalent Si–C bonding)
+• Bandgap: 3.2 eV (wide bandgap, zero leakage)
+• Radiation Hardness: Intrinsic immunity to EMP and ionizing radiation
+• Thermal Stability: No structural or electronic drift across 0K–1200K
 
 ----------------------------------------------------------------
 
 3. TOPOLOGICAL TRANSPORT (Supra-Medium)
---------------------------------------------
-3.1 Ballistic SiC-Flow
-Signal carriers move as coherent wavefunctions. The SiC lattice 
-minimizes electron-phonon scattering, enabling ballistic transport 
-across the entire 1 cm³ crystal.
+---------------------------------------
+The SiC monolith supports ballistic, topologically protected wave-logic.
 
-3.2 Zero Thermal Drift
-The high thermal conductivity of Silicon Carbide ensures that any 
-residual energy is instantly dissipated, maintaining a constant 
-isothermal state.
+3.1 Ballistic Wave-Logic
+Carriers propagate as coherent wavefunctions through the ultra-ordered
+SiC lattice. LbL epitaxy minimizes phonon scattering, enabling
+near-zero resistance and stable long-range coherence.
 
-3.3 SiC-Vacancy Memory (Quantum Sites)
-Specific Silicon or Carbon vacancies (V_Si, V_C) act as high-fidelity 
-qubits and long-term memory sites, outperforming standard NV-centers 
-in decoherence time.
+3.2 Resonant Interference (Shadow-State Execution)
+Computation occurs in interference zones:
+• Shadow-State:
+  A transient wave-interference pattern encoding the computational result.
+• Primary-State:
+  A validated, committed state stored in lattice-vacancy memory.
 
-----------------------------------------------------------------
+Promotion from Shadow → Primary requires I2 validation.
 
-4. EXECUTION LAYER (v4.1.1)
----------------------------
-4.1 Resonant Interference (Shadow-State)
-Logic operations are performed by intersecting wave-fronts within the 
-SiC crystal. Validated results transition from the "Shadow" interference 
-pattern to a stable "Primary" state.
-
-4.2 Sink-Node Termination
-Non-compliant wave patterns (violating I1-I4) are actively steered into 
-destructive interference zones (Sink-Nodes).
+3.3 Vacancy-Site Storage (V_Si Memory)
+Specific silicon vacancies serve as:
+• Quantum-stable memory cells
+• Resonant anchors for wave-logic
+• Long-term storage sites integrated directly into transport pathways
 
 ----------------------------------------------------------------
 
-5. LAYER SEPARATION MODEL
--------------------------
-5.1 Physical Layer: Silicon Carbide Monolith, Topo-Channels, Vacancy Sites.
-5.2 Execution Layer: Wave-Logic, Invariant Monitoring, Resonant Scheduling.
+4. EXECUTION & THERMAL MANAGEMENT
+---------------------------------
+4.1 Isothermal Operation
+SiC’s thermal conductivity (370–490 W/m·K) ensures:
+• Instantaneous heat dissipation
+• Uniform temperature across the monolith
+• No thermal gradients affecting logic behavior
+
+4.2 Sink-Node Entropy Drain
+Any violation of I1–I4 triggers immediate wave-steering into
+destructive interference zones (Sink-Nodes), preventing:
+• Logical corruption
+• Thermal runaway
+• Metastable states
 
 ----------------------------------------------------------------
 
-6. TECHNICAL PROFILE: DYN-GEM v4.1.1
+5. TECHNICAL PROFILE: DYN-GEM v4.1.1
 ------------------------------------
 | Feature             | v4.1.1 Specification           |
 |---------------------|--------------------------------|
-| Substrate           | Monolithic Silicon Carbide     |
-| Growth Method       | DNA-Templated Synthesis        |
-| Transport           | Topological Ballistic Flow     |
-| Memory              | SiC-Vacancy Quantum Sites      |
-| Power               | < 0.00001 W (Ambient Capture)  |
-| Error Rate          | 10^-28 (SiC-Shielded)          |
-| Lifespan            | Indefinite (> 1M Years)        |
-| Execution Model     | Resonant Wave + Invariants     |
+| Substrate           | Monolithic 4H-SiC              |
+| Synthesis           | DNA-Guided LbL Epitaxy         |
+| Transport           | Ballistic Wave-Interference    |
+| Logic Guard         | Formal Invariants (I1–I4)      |
+| Memory              | SiC Vacancy-Sites (V_Si)       |
+| Power Consumption   | < 0.00001 W (Dynamic Capture)  |
+| Operating Temp      | 0K to 1200K (Stable)           |
+| Radiation Hardness  | Native (EMP & Ionizing Immune) |
+| Execution Model     | Resonant Wave + Shadow-State   |
 
 ----------------------------------------------------------------
 
-7. ARCHITECTURAL GUARANTEES (v4.1.1)
-------------------------------------
-• Thermal Immunity: Operates from 0K to 1200K without logic shift.
-• Radiation Hardness: Silicon Carbide is naturally immune to EMP.
-• Absolute Determinism: Physical invariants enforce logical truth.
+6. ARCHITECTURAL GUARANTEES
+---------------------------
+• Survival: Engineered for deep-space, high-entropy, and high-radiation environments.
+• Integrity: Physical SiC lattice laws enforce the Logic Core invariants.
+• Determinism: Identical wavefronts yield identical outcomes.
+• Eternal Stability: No wear, drift, or degradation over operational lifespan.
 
-(C) Copyright 2026 Vincent Noll
 ----------------------------------------------------------------
-(End of Specification v4.1.1 – Monolithic Silicon-Carbide Architecture)
+(End of Specification v4.1.1 – Unified Biomimetic SiC Architecture)
 ================================================================
